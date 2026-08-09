@@ -1,0 +1,114 @@
+/* ================= DHU Man Power Services - custom styles ================= */
+/* Tailwind (CDN) handles utility classes; this file covers what Tailwind can't:
+   fonts, fine-tuned motion, focus states, and long-form blog typography. */
+
+:root {
+  --navy: #003366;
+  --navy-dark: #00284d;
+  --gold: #D4AF37;
+  --whatsapp: #25D366;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible, accessible focus ring for keyboard users */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Floating call / whatsapp buttons */
+.floating-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.floating-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+/* Service & blog cards */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(0,51,102,0.15);
+}
+
+/* Hero */
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(0,20,45,0.75) 0%, rgba(0,20,45,0.55) 45%, rgba(0,20,45,0.85) 100%);
+}
+
+/* Line clamp for blog excerpts */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Blog / long-form content typography */
+.prose-dhu p {
+  margin-bottom: 1.1em;
+  line-height: 1.8;
+  color: #374151;
+}
+.prose-dhu h2 {
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-dhu ul {
+  margin: 0 0 1.1em 1.25em;
+  list-style: disc;
+  color: #374151;
+}
+.prose-dhu li {
+  margin-bottom: 0.4em;
+}
+
+/* Sticky mobile bottom CTA bar */
+.mobile-cta-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 40;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: #fff;
+  color: var(--navy);
+  padding: 10px 16px;
+  z-index: 100;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  left: 0;
+  top: 0;
+}
+
+/* Print: hide navigation chrome */
+@media print {
+  header, footer, .floating-btn, #termsModal { display: none !important; }
+}
